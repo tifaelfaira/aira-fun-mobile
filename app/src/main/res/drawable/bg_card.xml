@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- warna background -->
     <solid android:color="#FFFFFF"/>
 
-    <!-- sudut atas melengkung -->
     <corners
-        android:topLeftRadius="30dp"
-        android:topRightRadius="30dp"/>
+        android:topLeftRadius="40dp"
+        android:topRightRadius="40dp"/>
 
-    <!-- opsional biar lebih halus -->
     <stroke
         android:width="1dp"
-        android:color="#EAEAEA"/>
-
+        android:color="#E0E0E0"/>
 </shape>

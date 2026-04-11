@@ -1,79 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://android.com"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B1E3C">
+    android:background="@color/primary_orange">
 
-    <!-- LOGO -->
-    <ImageView
-        android:id="@+id/aira.png"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/aira"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
-
-    <!-- TITLE -->
-    <TextView
-        android:id="@+id/txtTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to Aira App ✨"
-        android:textColor="@android:color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_below="@id/aira.png"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
-
-    <!-- DESC -->
-    <TextView
-        android:id="@+id/txtDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login dulu ya biar bisa lanjut 🚀"
-        android:textColor="#D1D5DB"
-        android:textSize="14sp"
-        android:layout_below="@id/txtTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="6dp"/>
-
-    <!-- CARD -->
+    <!-- Header Section -->
     <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="10dp">
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp"
+                android:src="@drawable/aira" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text=" FoodieVerse ✨"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login to continue your food journey 🚀"
+            android:textColor="@color/primary_orange_light"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Card Login Putih (Melengkung) -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:elevation="8dp">
+        app:cardCornerRadius="40dp"
+        android:layout_marginBottom="-30dp"
+        app:cardElevation="20dp">
 
-        <EditText
-            android:id="@+id/etEmail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan Email"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"/>
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp"
+            android:paddingTop="45dp"
+            android:paddingBottom="80dp">
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Password"
-            android:layout_marginTop="16dp"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="welcome back to FoodieVerse Apps!"
+                android:textColor="@color/text_black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="#1E3A8A"
-            android:textColor="@android:color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EMAIL ADDRESS"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_grey"
+                android:layout_marginTop="25dp" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Enter your email"
+                android:paddingHorizontal="15dp"
+                android:inputType="textEmailAddress"
+                android:background="@android:drawable/edit_text"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PASSWORD"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_grey"
+                android:layout_marginTop="15dp" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:paddingHorizontal="15dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="35dp"
+                android:text="LOGIN"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/primary_orange"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/accent_orange"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
