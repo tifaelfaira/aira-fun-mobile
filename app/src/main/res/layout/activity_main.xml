@@ -4,92 +4,119 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:background="@color/bg_light"
-    android:gravity="center_horizontal">
+    android:background="@color/bg_light">
 
-    <ImageView
-        android:id="@+id/imgLogoMain"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/aira"
-        android:scaleType="centerInside" />
-
-    <TextView
-        android:id="@+id/txtWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome, Ms. Aira"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/primary_orange"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pilih menu untuk memulai gallery"
-        android:textColor="@color/text_grey"
-        android:textSize="14sp"
-        android:layout_marginBottom="40dp"/>
-
-    <Button
-        android:id="@+id/btnRumus"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Rumus Bangun Ruang"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="#1565C0"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="15dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bina_desa_primary"
+        app:titleTextColor="@color/white"
         app:elevation="4dp" />
 
-    <Button
-        android:id="@+id/btnCustom1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Halaman Custom Profile"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/primary_orange"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="15dp"
-        app:elevation="4dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/btnCustom2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Halaman Custom Dashboard"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/primary_orange"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="15dp"
-        app:elevation="4dp" />
+        <ImageView
+            android:id="@+id/imgLogoMain"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/aira"
+            android:scaleType="centerInside" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <TextView
+            android:id="@+id/txtWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome, Ms. Aira"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_orange"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Logout"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/danger_red"
-        android:layout_marginBottom="10dp"
-        app:cornerRadius="15dp"
-        app:elevation="4dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih menu untuk memulai gallery"
+            android:textColor="@color/text_grey"
+            android:textSize="14sp"
+            android:layout_marginBottom="30dp"/>
 
+        <Button
+            android:id="@+id/btnWebView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Desktop View Bina Desa"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/bina_desa_primary"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="15dp"
+            app:elevation="4dp" />
+
+        <Button
+            android:id="@+id/btnRumus"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Rumus Bangun Ruang"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1565C0"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="15dp"
+            app:elevation="4dp" />
+
+        <Button
+            android:id="@+id/btnCustom1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Halaman Custom Profile"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/primary_orange"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="15dp"
+            app:elevation="4dp" />
+
+        <Button
+            android:id="@+id/btnCustom2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Halaman Custom Dashboard"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/primary_orange"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="15dp"
+            app:elevation="4dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/danger_red"
+            android:layout_marginBottom="10dp"
+            app:cornerRadius="15dp"
+            app:elevation="4dp" />
+
+    </LinearLayout>
 </LinearLayout>
