@@ -1,4 +1,4 @@
-package com.example.aira_fun.pertemuan_6
+package com.example.aira_fun.Home.pertemuan_6
 
 import android.os.Bundle
 import android.view.View

@@ -1,7 +1,8 @@
-package com.example.aira_fun.pertemuan_3
+package com.example.aira_fun.Home.pertemuan_4
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+// Import binding sesuai nama layout XML kamu
 import com.example.aira_fun.databinding.ActivityDashboardBinding
 
 class DashboardActivity : AppCompatActivity() {
@@ -9,21 +10,24 @@ class DashboardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 1. Setup View Binding
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ambil data judul dari Intent
+        // 2. Ambil data dari Intent (yang dikirim dari HomeFragment)
         val judul = intent.getStringExtra("judul") ?: "Aira Food Gallery"
 
-        // FIX: Ganti txtWelcomeUser jadi txtWelcomeDashboard
+        // 3. Set data ke komponen UI
+        // Pastikan ID 'txtWelcomeDashboard' ada di file activity_dashboard.xml
         binding.txtWelcomeDashboard.text = "Welcome, Ms. Aira"
 
-        // Pastikan ID ini juga ada di XML kamu untuk judulnya
+        // Pastikan ID 'txtJudulDetail' ada di file activity_dashboard.xml
         binding.txtJudulDetail.text = judul
 
-        // Tombol Back
+        // 4. Tombol Back
         binding.btnBack.setOnClickListener {
-            finish()
+            finish() // Menutup activity dan kembali ke halaman sebelumnya
         }
     }
 }

@@ -14,43 +14,39 @@
         android:label="Aira Food"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
         <activity
-            android:name=".pertemuan_6.WebViewActivity"
+            android:name=".BaseActivity"
             android:exported="false" />
-
         <activity
-            android:name=".pertemuan_6.SplashScreenActivity"
-            android:exported="true" >
+            android:name=".Home.pertemuan_6.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_6.SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".pertemuan_3.LoginActivity"
-            android:exported="false"/>
-
-        <activity
-            android:name=".pertemuan_3.MainActivity"
+            android:name=".Home.pertemuan_3.LoginActivity"
             android:exported="false" />
-
         <activity
-            android:name=".pertemuan_3.ProfileActivity"
+            android:name=".MainActivity"
             android:exported="false" />
-
         <activity
-            android:name=".pertemuan_3.DashboardActivity"
+            android:name=".Home.pertemuan_4.ProfileActivity"
             android:exported="false" />
-
         <activity
-            android:name=".RumusBangunRuangActivity"
+            android:name=".Home.pertemuan_4.DashboardActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".Home.pertemuan_2.RumusBangunRuangActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

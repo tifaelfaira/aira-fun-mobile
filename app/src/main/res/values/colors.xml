@@ -17,5 +17,10 @@
     <color name="danger_red">#E74C3C</color>
     <color name="teal_medium">#00897B</color>
 
+    <color name="bina_desa_blue">#91C4FB</color>
     <color name="bina_desa_primary">#91C4FB</color>
+
+    <color name="bina_desa_blue_dark">#3366BB</color>
+    <color name="bina_desa_blue_light">#E3F2FD</color>
+    <color name="medical_white">#F8F9FA</color>
 </resources>

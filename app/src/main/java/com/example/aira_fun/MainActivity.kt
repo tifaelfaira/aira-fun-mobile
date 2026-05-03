@@ -1,14 +1,15 @@
-package com.example.aira_fun.pertemuan_3
+package com.example.aira_fun
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-// IMPORT ini tetap dipertahankan agar tidak merah
-import com.example.aira_fun.RumusBangunRuangActivity
 import com.example.aira_fun.databinding.ActivityMainBinding
-import com.example.aira_fun.pertemuan_6.WebViewActivity
+import com.example.aira_fun.Home.pertemuan_2.RumusBangunRuangActivity
+import com.example.aira_fun.Home.pertemuan_4.DashboardActivity
+import com.example.aira_fun.Home.pertemuan_3.LoginActivity
+import com.example.aira_fun.Home.pertemuan_4.ProfileActivity
+import com.example.aira_fun.Home.pertemuan_6.WebViewActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 .setMessage("Apakah anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { _, _ ->
                     // --- 3. TAMBAHAN PERTEMUAN 6: Hapus Sesi Login ---
-                    val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                    val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
                     sharedPref.edit().clear().apply()
 
                     val intentLogout = Intent(this, LoginActivity::class.java)
