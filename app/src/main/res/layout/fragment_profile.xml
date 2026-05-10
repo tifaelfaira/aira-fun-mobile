@@ -1,156 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#B0CEFA"
+    android:background="#D1E9FF"
     tools:context=".Profile.ProfileFragment">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/bina_desa_primary"
-        app:title="Developer Profile"
-        app:titleTextColor="@android:color/white"
-        app:elevation="4dp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingTop="100dp"> <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="20dp">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="6dp"
-                android:layout_marginBottom="20dp">
+                android:orientation="vertical"
+                android:padding="30dp"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="30dp"
-                    android:gravity="center">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    app:cardCornerRadius="60dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/bina_desa_primary">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="60dp"
-                        app:cardElevation="2dp"
-                        app:cardBackgroundColor="#E3EDFF">
-
-                        <ImageView
-                            android:id="@+id/imgProfile"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ayyy"
-                            android:scaleType="centerCrop" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/txtDeveloperName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ms. Aira"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="#4A90E2"
-                        android:layout_marginTop="16dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#4A90E2"
-                android:layout_marginBottom="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tentang Saya"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="#B2FF59" />
-
-                    <TextView
+                    <ImageView
+                        android:id="@+id/imgProfile"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Saya adalah mahasiswi Sistem Informasi yang antusias dalam pengembangan aplikasi mobile. Memiliki ketertarikan kuat dalam UI/UX design dan manajemen basis data untuk mendukung proyek Bina Desa Health ini."
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp"
-                        android:lineSpacingExtra="6dp"
-                        android:layout_marginTop="12dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ayyy"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
+                <TextView
+                    android:id="@+id/txtDeveloperName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ms. Aira"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#4A90E2"
+                    android:layout_marginTop="16dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/bina_desa_primary"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="@color/bina_desa_blue_light"
-                android:layout_marginBottom="20dp">
+                android:orientation="vertical"
+                android:padding="24dp">
 
-                <LinearLayout
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tentang Saya"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#172368" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp">
+                    android:text="Saya adalah mahasiswi Sistem Informasi yang antusias dalam pengembangan aplikasi mobile. Memiliki ketertarikan kuat dalam UI/UX design dan manajemen basis data untuk mendukung proyek Bina Desa Health ini."
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="6dp"
+                    android:layout_marginTop="12dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Informasi Akademik"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="#4A90E2" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#9ACCF8"
+            android:layout_marginBottom="20dp">
 
-                    <View
-                        android:layout_width="40dp"
-                        android:layout_height="3dp"
-                        android:background="#A0C4FF"
-                        android:layout_marginTop="8dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nama Lengkap : Roujwa Tifaelfaira NL\nNIM : 2457301127\nProdi : Sistem Informasi\nStatus : Mahasiswi Aktif"
-                        android:textColor="#546E7A"
-                        android:textSize="14sp"
-                        android:lineSpacingExtra="8dp"
-                        android:layout_marginTop="16dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bina Desa Health Project - 2026"
-                android:gravity="center"
-                android:textColor="#4D5054"
-                android:textSize="12sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"/>
+                android:orientation="vertical"
+                android:padding="24dp">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi Akademik"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#4A90E2" />
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="3dp"
+                    android:background="#6890CE"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lengkap : Roujwa Tifaelfaira NL\nNIM : 2457301127\nProdi : Sistem Informasi\nStatus : Mahasiswi Aktif"
+                    android:textColor="#546E7A"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="8dp"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pengaturan &amp; Info"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#4A90E2"
+                    android:layout_marginBottom="8dp"/>
+
+                <ListView
+                    android:id="@+id/lvProfileMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:divider="@color/bina_desa_blue_light"
+                    android:dividerHeight="1dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bina Desa Health Project - 2026"
+            android:gravity="center"
+            android:textColor="#4D5054"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"/>
+    </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_header_wave" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:paddingTop="10dp"
+            app:title="Developer Profile"
+            app:titleTextColor="@android:color/white" />
+
+    </FrameLayout>
+
+</RelativeLayout>

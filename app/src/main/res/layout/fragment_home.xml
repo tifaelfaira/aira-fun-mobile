@@ -1,122 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/bina_desa_blue_light"
-    tools:context=".Home.HomeFragment"> <androidx.appcompat.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/bina_desa_primary"
-    app:titleTextColor="@color/white"
-    app:elevation="4dp" />
+    android:background="#D1E9FF">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:paddingBottom="80dp">
 
-        <ImageView
-            android:id="@+id/imgLogoMain"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/logo_bina_desa"
-            android:scaleType="centerInside" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp">
 
-        <TextView
-            android:id="@+id/txtWelcome"
-            android:layout_width="wrap_content"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_header_wave" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:paddingTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home Bina Desa"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <TextView
+                android:id="@+id/txtWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="18dp"
+                android:layout_marginStart="24dp"
+                android:text="Welcome FoVerse"
+                android:textColor="#0D47A1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome, Ms. Aira"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary_orange"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pilih menu untuk memulai gallery"
-            android:textColor="@color/text_grey"
-            android:textSize="14sp"
-            android:layout_marginBottom="30dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:startIconDrawable="@android:drawable/ic_menu_search"
+                app:boxStrokeColor="#1E88E5"
+                app:hintTextColor="#1E88E5">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cari Layanan Kesehatan" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnRumus"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Rumus Bangun Ruang"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#1565C0"
-            android:layout_marginBottom="16dp"
-            app:cornerRadius="15dp"
-            app:elevation="4dp" />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:singleSelection="true"
+                app:selectionRequired="true">
 
-        <Button
-            android:id="@+id/btnCustom1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Halaman Custom Profile"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="@color/primary_orange"
-            android:layout_marginBottom="16dp"
-            app:cornerRadius="15dp"
-            app:elevation="4dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPoli"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Poli Umum"
+                    android:checkable="true"
+                    android:checked="true"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/bina_desa_primary"
+                    android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btnCustom2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Halaman Custom Dashboard"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="@color/primary_orange"
-            android:layout_marginBottom="16dp"
-            app:cornerRadius="15dp"
-            app:elevation="4dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipApotek"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apotek"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/bina_desa_primary"
+                    android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btnWebView"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Desktop View Bina Desa"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="@color/bina_desa_primary"
-            android:layout_marginBottom="16dp"
-            app:cornerRadius="15dp"
-            app:elevation="4dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDarurat"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Darurat"
+                    android:checkable="true"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/bina_desa_primary"
+                    android:textColor="@color/white" />
+            </com.google.android.material.chip.ChipGroup>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            <androidx.gridlayout.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:columnCount="2">
 
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Logout"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="@color/bina_desa_blue_dark"
-            android:layout_marginBottom="10dp"
-            app:cornerRadius="15dp"
-            app:elevation="4dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRumus"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    android:text="Kalkulator\nKesehatan"
+                    app:icon="@android:drawable/ic_menu_edit"
+                    app:iconGravity="top"
+                    app:iconSize="40dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="15dp"
+                    android:lineSpacingExtra="4dp"
+                    android:backgroundTint="#71ACE7"
+                    app:cornerRadius="20dp"
+                    android:textAllCaps="false" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCustom1"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    android:text="Profil\nPasien"
+                    app:icon="@android:drawable/ic_menu_myplaces"
+                    app:iconGravity="top"
+                    app:iconSize="40dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="15dp"
+                    android:lineSpacingExtra="4dp"
+                    android:backgroundTint="@color/bina_desa_primary"
+                    app:cornerRadius="20dp"
+                    android:textAllCaps="false" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCustom2"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    android:text="Riwayat\nLayanan"
+                    app:icon="@android:drawable/ic_menu_today"
+                    app:iconGravity="top"
+                    app:iconSize="40dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="15dp"
+                    android:lineSpacingExtra="4dp"
+                    android:backgroundTint="@color/bina_desa_primary"
+                    app:cornerRadius="20dp"
+                    android:textAllCaps="false" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWebView"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    android:text="Web\nBina Desa"
+                    app:icon="@android:drawable/ic_menu_mapmode"
+                    app:iconGravity="top"
+                    app:iconSize="40dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="15dp"
+                    android:lineSpacingExtra="4dp"
+                    android:backgroundTint="#71ACE7"
+                    app:cornerRadius="20dp"
+                    android:textAllCaps="false" />
+            </androidx.gridlayout.widget.GridLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="20dp"
+                android:text="Keluar Aplikasi"
+                android:backgroundTint="@color/bina_desa_primary"
+                android:textColor="@color/white"
+                app:cornerRadius="15dp"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

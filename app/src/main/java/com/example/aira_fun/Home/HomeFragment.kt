@@ -6,19 +6,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-
-// IMPORT SESUAI STRUKTUR FOLDER (Pertemuan di dalam folder Home)
 import com.example.aira_fun.Home.pertemuan_2.RumusBangunRuangActivity
 import com.example.aira_fun.Home.pertemuan_3.LoginActivity
 import com.example.aira_fun.Home.pertemuan_4.DashboardActivity
 import com.example.aira_fun.Home.pertemuan_4.ProfileActivity
 import com.example.aira_fun.Home.pertemuan_6.WebViewActivity
-
 import com.example.aira_fun.databinding.FragmentHomeBinding
+import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment() {
 
@@ -36,22 +34,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Setup Toolbar
-        val activity = requireActivity() as AppCompatActivity
-        activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar?.title = "Bina Desa - Health"
+        // Toolbar Setup
+        (activity as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
+        (activity as? AppCompatActivity)?.supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        binding.txtWelcome.text = "Welcome FoVerse"
-
-        // Tombol-tombol Intent
-        binding.btnWebView.setOnClickListener {
-            startActivity(Intent(requireContext(), WebViewActivity::class.java))
+        // Chip Logic - Cara paling aman biar nggak error di library
+        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+            val chip = group.findViewById<Chip>(checkedId)
+            chip?.let {
+                Toast.makeText(requireContext(), "Layanan: ${it.text}", Toast.LENGTH_SHORT).show()
+            }
         }
 
+        // Navigasi Tombol
         binding.btnRumus.setOnClickListener {
-            val intent = Intent(requireContext(), RumusBangunRuangActivity::class.java)
-            intent.putExtra("judul", "Kalkulator")
-            startActivity(intent)
+            startActivity(Intent(requireContext(), RumusBangunRuangActivity::class.java))
         }
 
         binding.btnCustom1.setOnClickListener {
@@ -62,6 +59,11 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), DashboardActivity::class.java))
         }
 
+        binding.btnWebView.setOnClickListener {
+            startActivity(Intent(requireContext(), WebViewActivity::class.java))
+        }
+
+        // Logout
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Logout")

@@ -1,12 +1,13 @@
 package com.example.aira_fun
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.aira_fun.About.AboutFragment
-// PERBAIKAN DI SINI: Alamatnya harus ke folder Home, bukan pertemuan_2
 import com.example.aira_fun.Home.HomeFragment
 import com.example.aira_fun.Profile.ProfileFragment
 import com.example.aira_fun.databinding.ActivityBaseBinding
@@ -17,13 +18,23 @@ class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // --- 1. KODE SAKTI BIAR TEMBUS KE ATAS (VERSI IKON PUTIH) ---
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                )
+        // LIGHT_STATUS_BAR sudah dihapus biar jam & baterai balik jadi PUTIH
+        window.statusBarColor = Color.TRANSPARENT
+        // -----------------------------------------
+
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            // Set padding bottom 0 supaya Bottom Nav nggak gantung
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+            // Padding top tetep 0 biar gak ada bar putih!
+            v.setPadding(systemBars.left, 0, systemBars.right, 0)
             insets
         }
 
