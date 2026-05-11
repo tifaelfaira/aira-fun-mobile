@@ -1,49 +1,65 @@
 package com.example.aira_fun.Home.pertemuan_3
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-// PENTING: Tambahkan import ini agar LoginActivity kenal sama BaseActivity yang ada di luar
 import com.example.aira_fun.BaseActivity
 import com.example.aira_fun.databinding.ActivityLoginBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("LifeCycle", "LoginActivity: onCreate")
-
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
+        // Tombol registrasi tetap ada untuk syarat Quiz
+        binding.btnRegisterGmail.setOnClickListener {
+            val intent = Intent(this, EmailInputActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
+            val inputUser = binding.etEmail.text.toString()
+            val inputPass = binding.etPassword.text.toString()
 
-            // LOGIKA: Username harus sama dengan Password
-            if (email == password && email.isNotEmpty()) {
+            // Ambil data dari SharedPreferences (jika pernah regis)
+            val savedUser = sharedPref.getString("saved_username", null)
+            val savedPass = sharedPref.getString("saved_password", null)
 
-                // SIMPAN STATUS LOGIN
+            // --- LOGIKA AGAR BISA LANGSUNG MASUK ---
+
+            // 1. Logika Login Bebas: Cukup isi Username dan Password dengan kata yang sama
+            val isBypassLogin = (inputUser == inputPass && inputUser.isNotEmpty())
+
+            // 2. Logika Sesuai Registrasi: (Syarat Quiz a3)
+            val isSharedPrefLogin = (inputUser == savedUser && inputPass == savedPass && inputUser.isNotEmpty())
+
+            // Jika salah satu benar, langsung masuk ke Dashboard
+            if (isBypassLogin || isSharedPrefLogin) {
+
+                // Simpan session
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", true)
-                editor.putString("username", email)
+                editor.putString("username", inputUser)
                 editor.apply()
 
-                // PINDAH KE BASEACTIVITY (Dashboard Utama)
+                // Pindah ke Dashboard
                 val intent = Intent(this, BaseActivity::class.java)
-                intent.putExtra("USER_EMAIL", email)
+                intent.putExtra("USER_EMAIL", inputUser)
                 startActivity(intent)
                 finish()
 
             } else {
-                AlertDialog.Builder(this)
+                // Tampilkan error hanya jika input kosong atau tidak cocok keduanya
+                MaterialAlertDialogBuilder(this)
                     .setTitle("Gagal Login")
-                    .setMessage("Silahkan coba lagi (Username & Password harus sama)")
+                    .setMessage("Username atau Password salah!")
                     .setPositiveButton("OK", null)
                     .show()
             }
