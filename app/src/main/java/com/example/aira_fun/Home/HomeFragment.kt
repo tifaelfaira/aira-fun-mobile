@@ -14,6 +14,7 @@ import com.example.aira_fun.Home.pertemuan_3.LoginActivity
 import com.example.aira_fun.Home.pertemuan_4.DashboardActivity
 import com.example.aira_fun.Home.pertemuan_4.ProfileActivity
 import com.example.aira_fun.Home.pertemuan_6.WebViewActivity
+import com.example.aira_fun.Home.pertemuan_10.TenthActivity // -> IMPORT BARU
 import com.example.aira_fun.databinding.FragmentHomeBinding
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -61,6 +62,11 @@ class HomeFragment : Fragment() {
 
         binding.btnWebView.setOnClickListener {
             startActivity(Intent(requireContext(), WebViewActivity::class.java))
+        }
+
+        // AKSI TOMBOL PERTEMUAN 10 -> TAMBAHAN BARU
+        binding.btnPertemuan10.setOnClickListener {
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 
         // Logout

@@ -190,13 +190,30 @@
                     android:backgroundTint="#71ACE7"
                     app:cornerRadius="20dp"
                     android:textAllCaps="false" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPertemuan10"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    android:text="Materi\nPertemuan 10"
+                    app:icon="@android:drawable/ic_menu_agenda"
+                    app:iconGravity="top"
+                    app:iconSize="40dp"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="15dp"
+                    android:lineSpacingExtra="4dp"
+                    android:backgroundTint="#71ACE7"
+                    app:cornerRadius="20dp"
+                    android:textAllCaps="false" />
             </androidx.gridlayout.widget.GridLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginBottom="20dp"
                 android:text="Keluar Aplikasi"
                 android:backgroundTint="@color/bina_desa_primary"
