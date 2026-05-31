@@ -24,11 +24,12 @@ class SplashScreenActivity : AppCompatActivity() {
             delay(2000)
 
             if (isLogin) {
-                // Ke halaman utama (BaseActivity)
+                // Ke halaman utama (BaseActivity) - UTUH KODE ASLIMU
                 startActivity(Intent(this@SplashScreenActivity, BaseActivity::class.java))
             } else {
-                // Ke halaman login
-                startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
+                // === INI SAJA YANG DIUBAH: Diarahkan ke Onboarding dulu sebelum ke Login ===
+                // Menggunakan path lengkap agar import LoginActivity di atas tidak abu-abu
+                startActivity(Intent(this@SplashScreenActivity, com.example.aira_fun.onboarding.OnboardingActivity::class.java))
             }
             finish()
         }

@@ -50,4 +50,16 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // 2. INI KODE TAMBAHAN BARU (UNTUK TUGAS PERTEMUAN 11)
+    // Library untuk slide Onboarding & titik indikator halaman
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
+    implementation("com.tbuonomo:dotsindicator:5.1.0")
+
+    // Library untuk mengambil data Berita dari internet (REST API)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Library agar proses download data API berjalan lancar di background
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
 }

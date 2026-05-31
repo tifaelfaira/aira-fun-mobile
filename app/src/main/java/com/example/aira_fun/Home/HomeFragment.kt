@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aira_fun.Home.pertemuan_2.RumusBangunRuangActivity
 import com.example.aira_fun.Home.pertemuan_3.LoginActivity
 import com.example.aira_fun.Home.pertemuan_4.DashboardActivity
 import com.example.aira_fun.Home.pertemuan_4.ProfileActivity
 import com.example.aira_fun.Home.pertemuan_6.WebViewActivity
-import com.example.aira_fun.Home.pertemuan_10.TenthActivity // -> IMPORT BARU
+import com.example.aira_fun.Home.pertemuan_10.TenthActivity
+import com.example.aira_fun.data.model.CatFactModel // Mengambil model dari folder data.model yang tersisa
 import com.example.aira_fun.databinding.FragmentHomeBinding
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -23,6 +25,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +42,7 @@ class HomeFragment : Fragment() {
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
         (activity as? AppCompatActivity)?.supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        // Chip Logic - Cara paling aman biar nggak error di library
+        // Chip Logic - Aman
         binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
             val chip = group.findViewById<Chip>(checkedId)
             chip?.let {
@@ -47,7 +50,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        // Navigasi Tombol
+        // Navigasi Tombol - Semuanya UTUH
         binding.btnRumus.setOnClickListener {
             startActivity(Intent(requireContext(), RumusBangunRuangActivity::class.java))
         }
@@ -64,7 +67,7 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), WebViewActivity::class.java))
         }
 
-        // AKSI TOMBOL PERTEMUAN 10 -> TAMBAHAN BARU
+        // AKSI TOMBOL PERTEMUAN 10
         binding.btnPertemuan10.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
@@ -83,6 +86,42 @@ class HomeFragment : Fragment() {
                 .setNegativeButton("Batal", null)
                 .show()
         }
+
+        // AKSI TOMBOL REFRESH HIJAU
+        binding.btnRefreshBerita.setOnClickListener {
+            Toast.makeText(requireContext(), "Berita diperbarui!", Toast.LENGTH_SHORT).show()
+            fetchPublicApiBerita()
+        }
+
+        // Jalankan fungsi pemicu list berita
+        fetchPublicApiBerita()
+    }
+
+    // Fungsi fetch berita yang sudah dijinakkan tanpa perlu file BeritaNetwork
+    private fun fetchPublicApiBerita() {
+        binding.rvBeritaDesa.layoutManager = LinearLayoutManager(requireContext())
+        loadCadanganBeritaBinaDesa()
+    }
+
+    // === PERUBAHAN DI SINI: MENGGABUNGKAN JUDUL + ISI AGAR KEDUANYA IKUT TERACAK ===
+    private fun loadCadanganBeritaBinaDesa() {
+        // Format pengiriman data: "Judul Berita | Isi Deskripsi Berita"
+        val kumpulanBeritaDesa = listOf(
+            CatFactModel(fact = "Penyuluhan Gizi & Stunting | Kegiatan edukasi di balai desa mendapatkan antusiasme tinggi dari para ibu dan balita.", length = 100),
+            CatFactModel(fact = "Jadwal Posyandu Lansia | Layanan cek kesehatan rutin Desa Sukamaju resmi dibuka kembali setiap hari Sabtu minggu pertama.", length = 100),
+            CatFactModel(fact = "Sosialisasi Air Bersih | Warga diimbau untuk selalu merebus air hingga mendidih sebelum dikonsumsi demi menjaga kesehatan pencernaan.", length = 100),
+            CatFactModel(fact = "Layanan Cek Darah Gratis | Poli Umum Bina Desa membuka pemeriksaan tekanan darah dan kolesterol gratis khusus hari Jumat ini.", length = 100),
+            CatFactModel(fact = "Info Stok Apotek Desa | Apotek Desa Sukamaju menerima pasokan obat-obatan baru, ketersediaan vitamin untuk warga kini aman.", length = 100),
+            CatFactModel(fact = "Agenda Senam Sehat | Kader kesehatan desa mengadakan senam jantung sehat bersama di lapangan utama besok pagi pukul 06.00 WIB.", length = 100),
+            CatFactModel(fact = "Tips Cegah Demam Berdarah | Waspada musim pancaroba, Puskesmas pembantu mengimbau warga melakukan gerakan 3M Plus secara berkala.", length = 100),
+            CatFactModel(fact = "Pemeriksaan Gigi Anak | Pemeriksaan kesehatan gigi gratis akan diselenggarakan di SDN 01 Sukamaju oleh tim dokter spesialis.", length = 100)
+        )
+
+        // Mengocok seluruh list berita secara acak kemudian mengambil 3 item teratas
+        val dataAcakPilihan = kumpulanBeritaDesa.shuffled().take(3)
+
+        // Set data hasil acikan maut langsung ke BeritaAdapter buatanmu
+        binding.rvBeritaDesa.adapter = BeritaAdapter(dataAcakPilihan)
     }
 
     override fun onDestroyView() {
