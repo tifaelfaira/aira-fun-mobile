@@ -10,6 +10,11 @@ import androidx.fragment.app.Fragment
 import com.example.aira_fun.About.AboutFragment
 import com.example.aira_fun.Home.HomeFragment
 import com.example.aira_fun.Profile.ProfileFragment
+
+// TAMBAHAN
+import com.example.aira_fun.Note.FragmentNote
+import com.example.aira_fun.Agenda.FragmentAgenda
+
 import com.example.aira_fun.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -44,18 +49,33 @@ class BaseActivity : AppCompatActivity() {
 
         binding.bottomNavView.setOnItemSelectedListener { item ->
             when (item.itemId) {
+
                 R.id.home -> {
                     replaceFragment(HomeFragment())
                     true
                 }
+
                 R.id.about -> {
                     replaceFragment(AboutFragment())
                     true
                 }
+
+                // TAMBAHAN NOTE
+                R.id.note -> {
+                    replaceFragment(FragmentNote())
+                    true
+                }
+
+                R.id.agenda -> {
+                    replaceFragment(FragmentAgenda())
+                    true
+                }
+
                 R.id.profile -> {
                     replaceFragment(ProfileFragment())
                     true
                 }
+
                 else -> false
             }
         }

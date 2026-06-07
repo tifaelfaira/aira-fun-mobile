@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.devtools.ksp") // <-- Cukup panggil ID pendeknya seperti ini saja
 }
 
 android {
@@ -33,8 +34,9 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        // Diubah ke Java 17 agar singkron dengan Gradle JVM 21 di Mac kamu
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -50,16 +52,15 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // 2. INI KODE TAMBAHAN BARU (UNTUK TUGAS PERTEMUAN 11)
-    // Library untuk slide Onboarding & titik indikator halaman
+    // Library Tambahan Tugas Pertemuan 11
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("com.tbuonomo:dotsindicator:5.1.0")
-
-    // Library untuk mengambil data Berita dari internet (REST API)
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
-    // Library agar proses download data API berjalan lancar di background
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    // --- INTEGRASI ROOM DATABASE DENGAN KSP ANTI-BUG ---
+    implementation("androidx.room:room-runtime:2.7.0-alpha13")
+    implementation("androidx.room:room-ktx:2.7.0-alpha13")
+    ksp("androidx.room:room-compiler:2.7.0-alpha13")
 }
