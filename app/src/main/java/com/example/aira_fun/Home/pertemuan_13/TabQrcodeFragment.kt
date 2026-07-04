@@ -1,4 +1,4 @@
-package com.example.aira_fun.home.pertemuan_13
+package com.example.aira_fun.Home.pertemuan_13 // FIX: Menggunakan H Kapital agar klop total!
 
 import android.graphics.Bitmap
 import android.graphics.Color

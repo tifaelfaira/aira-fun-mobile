@@ -10,23 +10,23 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.aira_fun.data.model.CatFactModel
+import com.example.aira_fun.databinding.FragmentHomeBinding
+import com.google.android.material.chip.Chip
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.example.aira_fun.Home.pertemuan_2.RumusBangunRuangActivity
 import com.example.aira_fun.Home.pertemuan_3.LoginActivity
 import com.example.aira_fun.Home.pertemuan_4.DashboardActivity
 import com.example.aira_fun.Home.pertemuan_4.ProfileActivity
 import com.example.aira_fun.Home.pertemuan_6.WebViewActivity
 import com.example.aira_fun.Home.pertemuan_10.TenthActivity
-import com.example.aira_fun.data.model.CatFactModel // Mengambil model dari folder data.model yang tersisa
-import com.example.aira_fun.databinding.FragmentHomeBinding
-import com.example.aira_fun.home.pertemuan_13.ThirteenthActivity
-import com.google.android.material.chip.Chip
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.example.aira_fun.Home.pertemuan_13.ThirteenthActivity
+
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
         (activity as? AppCompatActivity)?.supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        // Chip Logic - Aman
+        // Chip Logic
         binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
             val chip = group.findViewById<Chip>(checkedId)
             chip?.let {
@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        // Navigasi Tombol - Semuanya UTUH
+        // Navigasi Tombol - UTUH DAN AMAN SEMUANYA
         binding.btnRumus.setOnClickListener {
             startActivity(Intent(requireContext(), RumusBangunRuangActivity::class.java))
         }
@@ -68,14 +68,11 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), WebViewActivity::class.java))
         }
 
-        // AKSI TOMBOL PERTEMUAN 10
         binding.btnPertemuan10.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 
-        // =========================================================================
-        // TAMBAHAN BARU: AKSI TOMBOL PERTEMUAN 13
-        // =========================================================================
+        // Tetap pakai format Java standard kesukaanmu (Aman!)
         binding.btnPertemuan13.setOnClickListener {
             startActivity(Intent(requireContext(), ThirteenthActivity::class.java))
         }
@@ -101,19 +98,15 @@ class HomeFragment : Fragment() {
             fetchPublicApiBerita()
         }
 
-        // Jalankan fungsi pemicu list berita
         fetchPublicApiBerita()
     }
 
-    // Fungsi fetch berita yang sudah dijinakkan tanpa perlu file BeritaNetwork
     private fun fetchPublicApiBerita() {
         binding.rvBeritaDesa.layoutManager = LinearLayoutManager(requireContext())
         loadCadanganBeritaBinaDesa()
     }
 
-    // === PERUBAHAN DI SINI: MENGGABUNGKAN JUDUL + ISI AGAR KEDUANYA IKUT TERACAK ===
     private fun loadCadanganBeritaBinaDesa() {
-        // Format pengiriman data: "Judul Berita | Isi Deskripsi Berita"
         val kumpulanBeritaDesa = listOf(
             CatFactModel(fact = "Penyuluhan Gizi & Stunting | Kegiatan edukasi di balai desa mendapatkan antusiasme tinggi dari para ibu dan balita.", length = 100),
             CatFactModel(fact = "Jadwal Posyandu Lansia | Layanan cek kesehatan rutin Desa Sukamaju resmi dibuka kembali setiap hari Sabtu minggu pertama.", length = 100),
@@ -125,10 +118,7 @@ class HomeFragment : Fragment() {
             CatFactModel(fact = "Pemeriksaan Gigi Anak | Pemeriksaan kesehatan gigi gratis akan diselenggarakan di SDN 01 Sukamaju oleh tim dokter spesialis.", length = 100)
         )
 
-        // Mengocok seluruh list berita secara acak kemudian mengambil 3 item teratas
         val dataAcakPilihan = kumpulanBeritaDesa.shuffled().take(3)
-
-        // Set data hasil acikan maut langsung ke BeritaAdapter buatanmu
         binding.rvBeritaDesa.adapter = BeritaAdapter(dataAcakPilihan)
     }
 

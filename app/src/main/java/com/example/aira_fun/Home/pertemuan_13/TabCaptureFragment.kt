@@ -1,4 +1,4 @@
-package com.example.aira_fun.home.pertemuan_13
+package com.example.aira_fun.Home.pertemuan_13 // FIX: Menggunakan H Kapital biar klop!
 
 import android.Manifest
 import android.app.Activity

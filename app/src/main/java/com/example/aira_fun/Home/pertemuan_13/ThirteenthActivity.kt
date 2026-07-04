@@ -1,4 +1,4 @@
-package com.example.aira_fun.home.pertemuan_13
+package com.example.aira_fun.Home.pertemuan_13 // FIX: Sudah diganti H Kapital biar sejajar!
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

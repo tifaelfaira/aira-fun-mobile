@@ -65,7 +65,7 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:1.3.3")
     implementation("androidx.camera:camera-view:1.3.3")
 // ML Kit Barcode Scanning Dependencies
-    implementation("com.google.mlkit:barcode-scanning:17.2.0")
+    implementation("com.google.mlkit:barcode-scanning:17.0.2")
 
     // --- INTEGRASI ROOM DATABASE DENGAN KSP ANTI-BUG ---
     implementation("androidx.room:room-runtime:2.7.0-alpha13")

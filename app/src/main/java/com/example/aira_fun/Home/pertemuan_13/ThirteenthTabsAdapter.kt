@@ -1,4 +1,4 @@
-package com.example.aira_fun.home.pertemuan_13
+package com.example.aira_fun.Home.pertemuan_13 // FIX: Sudah diganti H Kapital biar serasi!
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
