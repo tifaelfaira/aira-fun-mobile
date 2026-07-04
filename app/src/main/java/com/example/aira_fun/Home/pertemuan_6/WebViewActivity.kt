@@ -18,7 +18,6 @@ class WebViewActivity : AppCompatActivity() {
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // --- SETUP TOOLBAR ---
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Desktop View Bina Desa"
@@ -26,12 +25,10 @@ class WebViewActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        // --- IZINKAN COOKIE (BIAR GAK 419 PAGE EXPIRED) ---
         val cookieManager = CookieManager.getInstance()
         cookieManager.setAcceptCookie(true)
         cookieManager.setAcceptThirdPartyCookies(binding.webView, true)
 
-        // --- SETUP WEBVIEW ---
         binding.webView.apply {
             webViewClient = WebViewClient()
 
@@ -50,7 +47,6 @@ class WebViewActivity : AppCompatActivity() {
                 javaScriptEnabled = true
                 domStorageEnabled = true
                 databaseEnabled = true
-                // Tambahan biar webnya lancar jaya
                 allowContentAccess = true
                 allowFileAccess = true
                 cacheMode = WebSettings.LOAD_DEFAULT

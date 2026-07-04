@@ -14,7 +14,6 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Pastikan layout activity_splash_screen.xml sudah ada di folder res/layout
         setContentView(R.layout.activity_splash_screen)
 
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
@@ -24,11 +23,8 @@ class SplashScreenActivity : AppCompatActivity() {
             delay(2000)
 
             if (isLogin) {
-                // Ke halaman utama (BaseActivity) - UTUH KODE ASLIMU
                 startActivity(Intent(this@SplashScreenActivity, BaseActivity::class.java))
             } else {
-                // === INI SAJA YANG DIUBAH: Diarahkan ke Onboarding dulu sebelum ke Login ===
-                // Menggunakan path lengkap agar import LoginActivity di atas tidak abu-abu
                 startActivity(Intent(this@SplashScreenActivity, com.example.aira_fun.onboarding.OnboardingActivity::class.java))
             }
             finish()

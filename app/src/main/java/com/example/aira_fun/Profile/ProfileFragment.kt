@@ -12,7 +12,6 @@ import com.example.aira_fun.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
-    // Deklarasi View Binding (Menggunakan FragmentProfileBinding)
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
@@ -20,7 +19,6 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inisialisasi layout binding
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,20 +34,16 @@ class ProfileFragment : Fragment() {
 
         // --- TAMBAHAN UNTUK ARRAYADAPTER (LISTVIEW) ---
 
-        // 1. Siapkan data menu
         val menuSettings = listOf("Privacy Policy", "About Project", "Terms of Service", "Help Center")
-
-        // 2. Buat adapter
         val adapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_1, // Layout bawaan Android
+            android.R.layout.simple_list_item_1,
             menuSettings
         )
 
-        // 3. Pasang adapter ke ListView (Pastikan ID di XML adalah lvProfileMenu)
+        // 3. Pasang adapter ke ListView
         binding.lvProfileMenu.adapter = adapter
 
-        // 4. Tambahkan logic klik pada item list
         binding.lvProfileMenu.setOnItemClickListener { _, _, position, _ ->
             val selectedMenu = menuSettings[position]
             Toast.makeText(requireContext(), "Membuka: $selectedMenu", Toast.LENGTH_SHORT).show()
@@ -58,7 +52,6 @@ class ProfileFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Penting: Hapus binding untuk mencegah memory leak
         _binding = null
     }
 }

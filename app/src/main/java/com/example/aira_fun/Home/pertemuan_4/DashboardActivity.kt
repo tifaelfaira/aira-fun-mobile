@@ -10,24 +10,15 @@ class DashboardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 1. Setup View Binding
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 2. Ambil data dari Intent (yang dikirim dari HomeFragment)
         val judul = intent.getStringExtra("judul") ?: "Aira Food Gallery"
-
-        // 3. Set data ke komponen UI
-        // Pastikan ID 'txtWelcomeDashboard' ada di file activity_dashboard.xml
         binding.txtWelcomeDashboard.text = "Welcome, Ms. Aira"
-
-        // Pastikan ID 'txtJudulDetail' ada di file activity_dashboard.xml
         binding.txtJudulDetail.text = judul
 
-        // 4. Tombol Back
         binding.btnBack.setOnClickListener {
-            finish() // Menutup activity dan kembali ke halaman sebelumnya
+            finish()
         }
     }
 }

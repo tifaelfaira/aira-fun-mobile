@@ -11,7 +11,6 @@ import com.example.aira_fun.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
 
-    // Sesuaikan tipe datanya di sini juga
     private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
 
@@ -19,7 +18,6 @@ class AboutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Sesuaikan class inflate-nya
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -28,7 +26,6 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val activity = requireActivity() as AppCompatActivity
-        // Pastikan di dalam fragment_about.xml ada view dengan id: toolbar
         activity.setSupportActionBar(binding.toolbar)
         activity.supportActionBar?.title = "About Bina Desa"
     }

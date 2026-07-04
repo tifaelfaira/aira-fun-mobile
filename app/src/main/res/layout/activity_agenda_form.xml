@@ -79,6 +79,21 @@
                         android:gravity="top"
                         android:inputType="textMultiLine"/>
 
+                    <!-- ======================================================== -->
+                    <!-- TAMBAHAN: INPUT MENIT REMINDER (SANGAT BERSIH DAN RAPI) -->
+                    <!-- ======================================================== -->
+                    <EditText
+                        android:id="@+id/etMinutes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="Ingatkan dalam berapa menit lagi?"
+                        android:textColorHint="#90A4AE"
+                        android:backgroundTint="#70B5F5"
+                        android:textSize="15sp"
+                        android:inputType="number"/>
+                    <!-- ======================================================== -->
+
                     <!-- ID TOMBOL AMAN & SERASI -->
                     <Button
                         android:id="@+id/btnSaveAgenda"

@@ -18,6 +18,7 @@ import com.example.aira_fun.Home.pertemuan_6.WebViewActivity
 import com.example.aira_fun.Home.pertemuan_10.TenthActivity
 import com.example.aira_fun.data.model.CatFactModel // Mengambil model dari folder data.model yang tersisa
 import com.example.aira_fun.databinding.FragmentHomeBinding
+import com.example.aira_fun.home.pertemuan_13.ThirteenthActivity
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -70,6 +71,13 @@ class HomeFragment : Fragment() {
         // AKSI TOMBOL PERTEMUAN 10
         binding.btnPertemuan10.setOnClickListener {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
+        }
+
+        // =========================================================================
+        // TAMBAHAN BARU: AKSI TOMBOL PERTEMUAN 13
+        // =========================================================================
+        binding.btnPertemuan13.setOnClickListener {
+            startActivity(Intent(requireContext(), ThirteenthActivity::class.java))
         }
 
         // Logout
